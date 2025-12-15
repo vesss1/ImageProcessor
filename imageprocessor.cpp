@@ -27,9 +27,9 @@ ImageProcessor::~ImageProcessor() {}
 
 void ImageProcessor::createActions()
 {
-    openFileAction = new QAction(tr("開啟檔案&O"),this);
+    openFileAction = new QAction(tr("開啟 檔案&O"),this);
     openFileAction->setShortcut(tr("Ctrl+O"));
-    openFileAction->setStatusTip(tr("開啟影像檔案"));
+    openFileAction->setStatusTip(tr("開啟 影像檔案"));
     connect(openFileAction,SIGNAL(triggered(bool)),this,SLOT(showOpenFile()));
 
     exitAction = new QAction(tr("結束&Q"),this);
@@ -37,12 +37,12 @@ void ImageProcessor::createActions()
     exitAction->setStatusTip(tr("退出程式"));
     connect(exitAction,SIGNAL(triggered(bool)),this,SLOT(close()));
 
-    big = new QAction(tr("放大"),this);
-    exitAction->setStatusTip(tr("放大"));
+    big = new QAction(tr("放大圖片"),this);
+    exitAction->setStatusTip(tr("放大圖片"));
     connect(big,SIGNAL(triggered(bool)),this,SLOT(bigFile()));
 
-    small = new QAction(tr("縮小"),this);
-    exitAction->setStatusTip(tr("縮小"));
+    small = new QAction(tr("縮小圖片"),this);
+    exitAction->setStatusTip(tr("縮小圖片"));
     connect(small,SIGNAL(triggered(bool)),this,SLOT(smallFile()));
 }
 
@@ -78,7 +78,7 @@ void ImageProcessor::loadFile(QString filename)
 
 void ImageProcessor::showOpenFile()
 {
-    filename = QFileDialog::getOpenFileName(this,tr("開啟影像"),tr("."),"bmp(*.bmp);;png(*.png)"";;Jpng(*.jpg)");
+    filename = QFileDialog::getOpenFileName(this,tr("開啟 影像"),tr("."),"bmp(*.bmp);;png(*.png)"";;Jpng(*.jpg)");
     if(!filename.isEmpty()){
         if(img.isNull()){
             loadFile(filename);
@@ -98,6 +98,7 @@ void ImageProcessor::bigFile()
         newIPWin->loadFile(filename);
     }
 }
+
 void ImageProcessor::smallFile()
 {
     if(!filename.isEmpty()){
